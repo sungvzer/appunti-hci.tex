@@ -1,0 +1,12 @@
+
+#####################################################################
+#
+# Here, you can put default commandline options; most users would for
+# instance like to put -v2 here.
+#
+
+CmdLine
+{
+    -n8
+    -n13
+}

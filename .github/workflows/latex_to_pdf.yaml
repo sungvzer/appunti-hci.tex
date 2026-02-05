@@ -1,0 +1,51 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+name: LaTeX to PDF
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Verify Commit Message Format
+        id: check_date
+        env:
+          COMMIT_MSG: ${{ github.event.head_commit.message }}
+        run: |
+          if [[ "$COMMIT_MSG" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]]; then
+            echo "✅ Commit message valid: $COMMIT_MSG"
+            echo "date=$COMMIT_MSG" >> $GITHUB_OUTPUT
+            echo "run_pipeline=true" >> $GITHUB_OUTPUT
+          else
+            echo "ℹ️ Commit message does not match date format (YYYY-MM-DD): $COMMIT_MSG"
+            echo "run_pipeline=false" >> $GITHUB_OUTPUT
+          fi
+      - name: Compile LaTeX to PDF
+        if: steps.check_date.outputs.run_pipeline == 'true'
+        uses: xu-cheng/latex-action@v4
+        with:
+          root_file: main.tex
+      - name: Upload PDF artifact
+        if: steps.check_date.outputs.run_pipeline == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: appunti-hci.pdf
+          path: main.pdf
+          if-no-files-found: error
+      - name: Release PDF
+        if: steps.check_date.outputs.run_pipeline == 'true'
+        uses: softprops/action-gh-release@v2
+        with:
+          files: main.pdf
+          name: "Appunti HCI - ${{ steps.check_date.outputs.date }}"
+          tag_name: ${{ steps.check_date.outputs.date }}
+          draft: false
+          prerelease: false
+          overwrite_files: true
