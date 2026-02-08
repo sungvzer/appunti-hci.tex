@@ -24,7 +24,7 @@ jobs:
             echo "date=$COMMIT_MSG" >> $GITHUB_OUTPUT
             echo "run_pipeline=true" >> $GITHUB_OUTPUT
           else
-            echo "❌ Error: Commit message '$COMMIT_MSG' does not match format yyyy-mm-dd"
+            echo "ℹ️ Commit message does not match date format (YYYY-MM-DD): $COMMIT_MSG"
             echo "run_pipeline=false" >> $GITHUB_OUTPUT
           fi
       - name: Compile LaTeX to PDF
