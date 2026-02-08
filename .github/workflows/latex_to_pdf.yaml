@@ -11,13 +11,10 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-      - name: Set up LaTeX environment
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y texlive-full make latexmk
       - name: Compile LaTeX to PDF
-        run: |
-          make build
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: main.tex
       - name: Upload PDF artifact
         uses: actions/upload-artifact@v4
         with:
