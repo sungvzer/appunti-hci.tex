@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+name: LaTeX to PDF
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Set up LaTeX environment
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y texlive-full make latexmk
+      - name: Compile LaTeX to PDF
+        run: |
+          make build
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: appunti-hci.pdf
+          path: main.pdf
+          if-no-files-found: error
+      - name: Release PDF
+        uses: softprops/action-gh-release@v2
+        with:
+          files: main.pdf
