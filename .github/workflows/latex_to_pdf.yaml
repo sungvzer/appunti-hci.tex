@@ -12,7 +12,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
       - name: Compile LaTeX to PDF
-        uses: xu-cheng/latex-action@v2
+        uses: xu-cheng/latex-action@v4
         with:
           root_file: main.tex
       - name: Upload PDF artifact
@@ -25,3 +25,7 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           files: main.pdf
+          tag_name: latest
+          draft: false
+          prerelease: false
+          overwrite: true
