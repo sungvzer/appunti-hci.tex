@@ -1,4 +1,5 @@
 \documentclass[a4paper,12pt]{article}
+\usepackage{parskip}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
 \usepackage{amssymb}
@@ -8,8 +9,21 @@
 \usepackage{xcolor}
 \usepackage[default]{lato}
 \usepackage{emoji}
+\usepackage{graphicx}
 \usepackage{fancyhdr}
 \usepackage[pdfborderstyle={/S/U/W 1}]{hyperref}
+\usepackage{datetime2}
+
+\DTMnewdatestyle{dateIT}{%
+  \renewcommand{\DTMdisplaydate}[4]{%
+    \DTMtwodigits{##3}/% Giorno (due cifre)
+    \DTMtwodigits{##2}/% Mese (due cifre)
+    \number##1%          Anno
+  }%
+  \renewcommand{\DTMdisplayzone}[2]{}%
+}
+
+\DTMsetdatestyle{dateIT}
 
 
 
@@ -20,7 +34,9 @@
     \textit{\textcolor{gray}{Salvatore Gargano \emoji{desktop-computer} Appunti di Interazione Uomo Macchina}}
 }
 \rhead{} % controls the right corner of the header
-\lfoot{} % controls the left corner of the footer
+\lfoot{
+    \textcolor{gray}{\today} % current date in the left corner of the footer
+} % controls the left corner of the footer
 \cfoot{} % controls the center of the footer
 \rfoot{\textcolor{gray}{\thepage}} % controls the right corner of the footer
 \setlength{\headheight}{16pt}
