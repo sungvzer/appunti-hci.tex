@@ -1,0 +1,143 @@
+\section{Ingegneria dell'usabilità}
+
+È la disciplina che studia le tecniche, i metodi, e i processi usati per progettare sistemi usabilili; è seguita poi dall'effetiva realizzazione del prodotto, e dalla verifica delle sue caratteristiche.
+
+Dal disegno della semplice interfaccia utente, si è espansa per comprendere le pratiche usate nel processo di progettazione di sistemi interattivi.
+
+\subsection{Modello iterativo}
+
+\begin{tikzpicture}[
+    % Definizione degli stili per mantenere il codice pulito
+    state/.style={ellipse, draw=black, minimum width=3.5cm, minimum height=1.5cm, font=\sffamily, fill=white},
+    arrow/.style={red, -{Triangle[length=5mm, width=6mm]}, line width=2mm},
+    note/.style={fill=yellow, font=\sffamily\footnotesize, align=center, inner sep=3pt}
+    ]
+
+    % 1. Posizionamento dei nodi principali (le ellissi)
+    \node[state] (req) at (0, 2.5) {Requisiti};
+    \node[state] (prog) at (-3.5, 0) {Progettazione};
+    \node[state] (prot) at (0, -2.5) {Prototipazione};
+    \node[state] (test) at (3.5, 0) {Test};
+
+    % 2. Frecce interne del ciclo (leggermente curvate con 'bend right')
+    \draw[arrow] (req) to[bend right=25] (prog);
+    \draw[arrow] (prog) to[bend right=25] (prot);
+    \draw[arrow] (prot) to[bend right=25] (test);
+    \draw[arrow] (test) to[bend right=25] (req);
+
+    % 3. Freccia in entrata (Inizio)
+    \draw[arrow] (-5.5, 2.5) -- node[above, font=\sffamily, text=black] {Inizio} (req.west);
+
+    % 4. Freccia in uscita (Rilascio)
+    \draw[arrow] (test.east) -- node[above, font=\sffamily, text=black] {Rilascio} (6.5, 0);
+
+    % 5. Annotazioni evidenziate in giallo
+    \node[note] at (2.5, 3.8) {Nota bene: anche i requisiti evolvono durante il processo};
+    \node[note] at (-3.5, -3.2) {Prototipi perfezionati e sempre pi\`u complessi};
+    \node[note] at (6, -2.2) {Le prove d'uso diventano parte\\integrante del processo di progettazione};
+
+\end{tikzpicture}
+
+
+Si realizza una serie di prototipi sempre più vicini al sistema finale, sottoposti all'utente e aggiustati via via fino alla conclusione del progetto.
+
+Nelle varie iterazioni, man mano ci si sposta dalla fase di raccolta requisiti e progettazione alla fase di test e rilascio del prodotto finito.
+
+\begin{tabularx}{\textwidth}{|c|>{\centering\arraybackslash}X|}
+    \hline
+    \bld{Pro}                                         & \bld{Contro}                                          \\
+    \hline
+    Modello concettualmente corretto                  & Difficoltà di stima di costi                          \\
+    Prodotto visto fin dall'inizio e perfezionato     & Rischio di esplosione del numero di richieste         \\
+    Le scelte si possono sperimentare anticipatamente & Comunicazione più complicata tra le persone coinvolte \\
+    \hline
+\end{tabularx}
+
+\subsection{ISO 13407: «Human-centered design process for interactive systems»}
+
+\begin{center}
+    \begin{tikzpicture}[
+            % Definizione dello stile per i blocchi grigi
+            block/.style={
+                    rectangle,
+                    draw=black,
+                    fill=gray!20,
+                    text width=4cm,
+                    align=center,
+                    minimum height=1.5cm,
+                    font=\sffamily\small
+                },
+            % Stile per le frecce
+            line/.style={
+                    -Stealth,
+                    thick,
+                    draw=black
+                }
+        ]
+
+        % 1. Posizionamento dei nodi
+        % Nodo iniziale in alto
+        \node [block] (start) {Identificare le necessità per la progettazione human-centered};
+
+        % Ciclo centrale
+        \node [block, below=1cm of start] (context) {Comprendere e specificare il contesto d'uso};
+        \node [block, right=1.5cm of context, yshift=-2.5cm] (req) {Specificare i requisiti utente e organizzativi};
+        \node [block, below=2.5cm of context, yshift=-2.5cm] (sol) {Produrre soluzioni di progetto};
+        \node [block, left=1.5cm of context, yshift=-2.5cm] (eval) {Valutare il progetto rispetto ai requisiti};
+
+        % 2. Disegno delle frecce
+        % Freccia dritta dall'inizio
+        \draw [line] (start) -- (context);
+
+        % Frecce curve del ciclo (usiamo bend per l'effetto circolare)
+        \draw [line] (context.east) to[bend left=30] (req.north);
+        \draw [line] (req.south) to[bend left=30] (sol.east);
+        \draw [line] (sol.west) to[bend left=30] (eval.south);
+        \draw [line] (eval.north) to[bend left=30] (context.west);
+
+        % 3. Freccia di uscita (Il sistema soddisfa...)
+        \draw [line] (eval.north) -- ++(0, 2cm)
+        node[above, text width=3cm, align=center, font=\sffamily\small]
+        {il sistema soddisfa i requisiti utente e organizzativi};
+
+    \end{tikzpicture}
+\end{center}
+
+\section*{Processo di Progettazione Human-Centered (ISO 13407)}
+
+Il processo definito dalla norma ISO 13407 prevede quattro fasi cicliche principali, precedute dalla pianificazione iniziale
+
+\begin{enumerate}
+    \item \textbf{Comprendere e specificare il contesto d'uso}
+          \begin{itemize}
+              \item Analisi delle caratteristiche degli utenti, incluse competenze, abilità, esperienze e preferenze
+              \item Descrizione dei compiti che gli utenti dovranno eseguire, considerando frequenza, durata e implicazioni per la sicurezza.
+              \item Definizione dell'ambiente fisico e sociale, comprese le tecnologie utilizzate e gli standard organizzativi.
+          \end{itemize}
+
+    \item \textbf{Specificare i requisiti degli utenti e dell'organizzazione}
+          \begin{itemize}
+              \item Definizione delle prestazioni richieste rispetto agli obiettivi operativi ed economici.
+              \item Identificazione dei requisiti normativi, legislativi e di sicurezza.
+              \item Analisi della comunicazione e cooperazione tra utenti e altri attori coinvolti.
+              \item Progettazione delle attività e delle procedure di lavoro, inclusa la gestione del cambiamento e dell'addestramento.
+              \item Valutazione della fattibilità delle operazioni e della progettazione dei posti di lavoro e delle interfacce.
+          \end{itemize}
+
+    \item \textbf{Produrre soluzioni di progetto}
+          \begin{itemize}
+              \item Sviluppo di proposte progettuali attraverso un approccio multidisciplinare.
+              \item Realizzazione di simulazioni, modelli e prototipi per rendere concrete le soluzioni.
+              \item Presentazione dei progetti agli utenti per l'esecuzione di compiti simulati.
+              \item Modifica iterativa del progetto in base alle reazioni degli utenti fino al raggiungimento degli obiettivi.
+          \end{itemize}
+
+    \item \textbf{Valutare il progetto rispetto ai requisiti}
+          \begin{itemize}
+              \item Definizione di un piano di valutazione e produzione di feedback per il team di progettazione.
+              \item Verifica del raggiungimento degli obiettivi prefissati e validazione sul campo.
+              \item Monitoraggio a lungo termine del sistema e documentazione sistematica dei risultati ottenuti.
+          \end{itemize}
+\end{enumerate}
+
+Il ciclo si conclude quando il sistema soddisfa pienamente i requisiti utente e organizzativi identificati.
