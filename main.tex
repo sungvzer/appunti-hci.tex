@@ -53,8 +53,9 @@
 
 
 % Section formatting
-\titleformat{\section}{\large\bfseries}{\thesection}{1em}{}
-\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{1em}{}
+\titleformat{\section}{\centering\Large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\centering\large\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\centering\bfseries}{\thesubsubsection}{1em}{}
 
 % Hyperlink formatting
 \hypersetup{
@@ -64,9 +65,6 @@
     urlcolor=blue,
     pdftitle={Salvatore Gargano --- Appunti di Interazione Uomo Macchina},
 }
-
-% Make section centered without numbering
-\titleformat{\section}{\centering\large\bfseries}{}{0em}{}
 
 
 \begin{document}
@@ -78,6 +76,7 @@
 \tableofcontents
 \pagebreak
 
-\include{1_introduzione}
+\input{1_introduzione}
+\input{2_sistemi_interattivi}
 
 \end{document}

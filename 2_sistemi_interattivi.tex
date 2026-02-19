@@ -1,0 +1,95 @@
+\section{Sistemi interattivi e interfacce d'uso}
+
+Chiamiamo sistema interattivo qualsiasi «combinazione di componenti HW/SW che ricevono input da un essere umano, e gli forniscono un output allo scopo di supportare l'effettuazione di un compito. \itc{Banalmente, anche un frullatore è un sistema interattivo}.
+
+Un'interfaccia d'uso è l'insieme di «tutti i componenti di un sistema interattivo HW o SW che forniscono all'utente informazioni e comandi che gli permettono di effettuare specifici task».
+
+L'interazione (\itc{o dialogo}) è «una sequenza di azioni compiute dall'utente (input) e di risposte dal sistema (output), con lo scopo di raggiungere un certo obiettivo». Questo dialogo può essere realizzato attraverso tanti dispositivi di interazione.
+
+\begin{center}
+    \begin{tabular}{|c|c|}
+        \hline
+        \textbf{Metodo di interazione} & \textbf{Dispositivi associati}                     \\
+        \hline
+        Vista                          & Schermo, stampante                                 \\
+        Udito                          & Altoparlanti, cuffie, sintetizzatori vocali        \\
+        Mani                           & Tastiera, mouse, joystick, touch screen, scrittura \\
+        Sguardo                        & Eye-tracking, head-tracking                        \\
+        Voce                           & Riconoscimento vocale, microfono                   \\
+        \hline
+    \end{tabular}
+\end{center}
+
+\subsection{Complessità}
+
+Un sistema può essere complesso per diversi motivi:
+\begin{itemize}
+    \item \bld{Complessità strutturale}: il sistema è composto da molti componenti, e le relazioni tra questi componenti sono numerose e intricate.
+    \item \bld{Complessità funzionale}: il sistema supporta molte funzionalità, e l'utente deve imparare a usarle tutte.
+    \item \bld{Complessità d'uso}: la facilità (o mancanza di tale), con cui si è in grado di usare un sistema
+\end{itemize}
+
+Complessità strutturale, funzionale e d'uso sono indipendenti tra di loro: un sistema può essere molto intricato, ma anche estremamente facile da usare.
+
+\subsubsection{Metriche per misurare la complessità}
+
+La complessità \bld{strutturale} si può misurare ad esempio con le linee di codice sorgente di un programma, quella \bld{funzionale} invece attraverso i \itc{function point}, ovvero unità di misura delle funzionalità visibili all'utente.
+
+\subsection{Diversità degli utenti}
+
+Tutti gli utenti sono diversi, rispetto alle loro caratteristiche (lingua, cultura, abitudini, ecc.), e rispetto a come si interfacciano con il sistema. Non tutti gli utenti vogliono le stesse cose dal sistema, e ognuno di essi si rapporta con esso in modo diverso.
+
+Nella progettazione delle interfacce è quindi necessario comprendere gli utenti, le loro task abituali (\itc{task-centered system design}), e valutare le interfacce con gli utenti. Per valutare un'interfaccia bisogna capire come osservare le persone mentre usano un sistema.
+
+\subsection{Gestire i cambiamenti}
+
+Più accelera il cambiamento, più accelera con lui anche la complessità dei sistemi; spesso, adattarsi a questa velocità è difficile, soprattutto per le persone più anziane.
+
+Quest'accelerazione può essere data da diversi fattori, come:
+
+\begin{itemize}
+    \item Concorrenza
+    \item Tecnologia ed ecosistema tecnologico
+    \item Bisogni dell'utente
+\end{itemize}
+
+Quando avviene una separazione tra utenti e tecnologie a loro utili si parla di \bld{divario digitale}. L'\bld{e-inclusione} punta ad assicurare che persone svantaggiate non siano escluse per mancanza di alfabetizzazione digitale o accesso a internet.
+
+\subsubsection{Il ruolo delle interfacce utente}
+
+La facilità d'uso non dev'essere considerata solo una caratteristica, ma un \bld{prerequisito indispensabile}; progettare per tutti significa tenere conto delle diversità e preservarle, per garantire a tutti un accesso naturale agli strumenti necessari.
+
+Una buona interfaccia \bld{filtra} la complessità strutturale interna, e ne \bld{riduce la complessità} funzionale, aumentando l'automatismo delle funzioni e l'astrazione.
+
+\subsection{Paradigmi e tecnologie di interazione}
+
+Le tecnologie di interazione permettono nuovi paradigmi di interazione; ne identifichiamo 5 fondamentali.
+
+\subsection{Terminale scrivente}
+
+Il calcolatore segnala all'utente l'attesa di un comando, l'utente scrive il comando, e il calcolatore risponde stampando su rullo di carta.
+
+\subsection{Terminale video}
+
+Il tabulato continuo di carta diventa uno schermo 24x80 caratteri, la tastiera aumenta di funzionalità, tra cui un cursore. L'interazione fondamentale diventa la compilazione campo per campo di un \bld{form}, paradigma usato spesso tutt'ora.
+
+\subsection{Personal computer}
+
+Il mouse permette di interagire in modo completamente diverso rispetto alla tastiera, introducendo nuovi \itc{gesti}: puntare, cliccare, trascinare, ecc; entrano in gioco le interfacce \bld{WIMP}: \bld{W}indows, \bld{I}cons, \bld{M}enus, \bld{P}ointers.
+
+\begin{itemize}
+    \item Windows: sono aree dello schermo che si comportano come terminali indipendenti. Contengono grafiche, testi, o una combinazione delle due. Possono esserre spostate, sovrapposte, e ridimensionate.
+    \item Icons: figure o immagini che rappresentano concettualmente un'azione o un sistema.
+    \item Menu: scelta di operazioni o servizi in modo testuale; selezionate tramite mouse o tramite scorciatoie da tastiera
+    \item Pointers: permettono di "puntare" gli elementi a schermo col mouse tramite un \bld{cursore}
+\end{itemize}
+
+\subsection{Browser web}
+
+Si costruisce sulla base del Personal Computer, semplificando ulteriormente la comunicazione di base (si cliccano dei bottoni). Un elemento fondamentale è l'\bld{ipertesto}, un testo costituito da parti chiamate nodi, collegate tra link: l'esplorazione non è più lineare.
+
+La diffusione di questo paradigma avviene negli anni '90 con il WWW, con in quale i PC diventano dei dispositivi di ricerca e accesso alle informazioni in rete.
+
+\bld{Mobile}
+
+Il mobile non è né un telefono, né un computer, ma un dispositivo di comunicazione e di interazione con l'ambiente, destinato a un uso \itc{personale} dell'utente. Tramite sensori il mobile raccoglie informazioni in modo automatico, che poi fornirà alle applicazioni per agevolarne l'interazione con l'utente.
