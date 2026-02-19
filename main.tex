@@ -14,6 +14,11 @@
 \usepackage[pdfborderstyle={/S/U/W 1}]{hyperref}
 \usepackage{datetime2}
 
+% Bold, italics and underline shorthands
+\newcommand{\bld}[1]{\textbf{#1}}
+\newcommand{\itc}[1]{\textit{#1}}
+\newcommand{\und}[1]{\underline{#1}}
+
 \DTMnewdatestyle{dateIT}{%
   \renewcommand{\DTMdisplaydate}[4]{%
     \DTMtwodigits{##3}/% Giorno (due cifre)
