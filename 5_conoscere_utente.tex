@@ -1,0 +1,178 @@
+\section{Conoscere l'utente}
+
+L'usabilità è una proprietà relativa allo specifico utente, al compito e al contesto di utilizzo: un sistema usabile per un utente potrebbe essere inutilizzabile da un altro. Conoscere l'utente è quindi fondamentale per chi progetta un sistema.
+
+\subsection{User-centered design}
+
+L'utente va al centro delle attività del design: è il sistema che si adatta all'utente, non il contrario.
+
+\subsection{Livelli di descrizione dell'utente}
+
+L'utente si può descrivere su vari piani, in funzione degli aspetti esaminati.
+
+Gli utenti possono rivestire uno o più ruoli diversi in base alla funzione che esercitano nel sistema.
+
+\itc{N.B. Persona e ruolo sono due concetti distinti! Due utenti potrebbero ricoprire lo stesso ruolo, o un utente potrebbe ricoprire più ruoli.}
+
+\section{Human Information Processor}
+
+È un modello di modellazione cognitiva che si divide in tre sottosistemi interagenti: percettivo, motorio e cognitivo.
+
+\subsection{Attenzione}
+
+In questi tre sottosistemi ricopre un ruolo fondamentale l'\bld{attenzione}, ovvero quei processi cognitivi che ci permettono di selezionare le informazioni più utili tra tutte quelle che arrivano al cervello contemporaneamnte. Si divide in:
+
+\begin{itemize}
+    \item \bld{attenzione selettiva}: quando ci focalizziamo su un singolo evento escludendo gli altri
+    \item \bld{attenzione divisa}: quando seguiamo contemporaneamente più eventi; ha possibilità limitate, non riusciamo a prestare attenzione a troppe cose contemporaneamente
+\end{itemize}
+
+\begin{center}
+    \resizebox{\textwidth}{!}{
+        \begin{tikzpicture}[
+            font=\sffamily\small,
+            % Processori (Ellissi scure)
+            proc/.style={ellipse, draw, fill=gray!60, text=white, align=center, minimum width=2.5cm, minimum height=1.5cm},
+            % Memorie (Rettangoli chiari)
+            mem/.style={rectangle, draw, fill=gray!20, align=center, minimum width=2.2cm, minimum height=1.2cm},
+            % Attenzione
+            attn/.style={ellipse, draw, minimum width=4.5cm, minimum height=1cm},
+            % Stili Frecce
+            singleArrow/.style={-{Stealth[scale=1.2]}, thick, draw=olive!70!black},
+            doubleArrow/.style={{Stealth[scale=1.2]}-{Stealth[scale=1.2]}, thick, draw=olive!70!black},
+            line/.style={thick, draw=olive!70!black}
+            ]
+
+            % --- 1. POSIZIONAMENTO NODI ---
+            \node (sense) {Organi di senso};
+            \node [mem, right=0.8cm of sense] (sensMem) {Memoria\\sensoriale};
+            \node [proc, right=0.8cm of sensMem] (percProc) {Processore\\percettivo};
+            \node [proc, right=1.2cm of percProc] (cognProc) {Processore\\cognitivo};
+            \node [proc, right=1.2cm of cognProc] (motProc) {Processore\\motorio};
+            \node [below=0.6cm of motProc] (muscles) {Muscoli};
+
+            % Memorie inferiori (posizionate rispetto ai processori)
+            \node [mem, below=1.2cm of $(percProc.south)!0.5!(cognProc.south)$] (stMem) {Memoria a\\breve termine};
+            \node [mem, below=1.2cm of $(cognProc.south)!0.5!(motProc.south)$] (ltMem) {Memoria a\\lungo termine};
+
+            % Attenzione (in alto)
+            \node [attn, above=1.5cm of cognProc] (attn) {Attenzione};
+
+            % --- 2. COLLEGAMENTI ---
+            % Percorso orizzontale
+            \draw [singleArrow] (sense) -- (sensMem);
+            \draw [singleArrow] (sensMem) -- (percProc);
+            \draw [singleArrow] (percProc) -- (cognProc);
+            \draw [singleArrow] (cognProc) -- (motProc);
+            \draw [line, dashed] (motProc) -- (muscles);
+
+            % Collegamenti Memorie (DOPPIE FRECCE)
+            \draw [singleArrow] (stMem.north) -- (percProc.south);
+            \draw [doubleArrow] (stMem.east) -- (ltMem.west);
+            \draw [doubleArrow] (cognProc.south) -- (ltMem.north);
+
+            % Collegamenti Attenzione (Frecce grigie)
+            \draw [singleArrow, gray] (attn.210) -- (percProc.north);
+            \draw [singleArrow, gray] (attn.270) -- (cognProc.north);
+            \draw [singleArrow, gray] (attn.330) -- (motProc.north);
+            % Freccia curva verso memoria a lungo termine
+            \draw [singleArrow, gray] (attn.east) to[out=0, in=0, looseness=1.5] (ltMem.east);
+
+            % Feedback tratteggiato
+            \draw [singleArrow, dashed, gray] (muscles.west) -| (sense.south);
+            \node [below, font=\sffamily\footnotesize] at ($(sense.south)!0.5!(muscles.south)$) {Feedback};
+
+        \end{tikzpicture}
+    }
+\end{center}
+
+Questo modello ha implicazioni importanti sul design dell'interazione:
+
+\begin{itemize}
+    \item Dove e come dirigere l'attenzione?
+          \subitem Realizzando opportuni \itc{attention cue} che guidino l'attenzione dell'utente
+    \item Come mantenere l'attenzione?
+    \item Come evito interferenze?
+\end{itemize}
+
+\subsection{Memoria}
+
+Questo modello, chiaramente ispirato all’information processing, ipotizza l’esistenza di una serie di fasi, attraverso cui l’informazione transita, e una serie di “magazzini” destinati a contenerla.
+
+
+\begin{center}
+    \resizebox{\linewidth}{!}{%
+        \begin{tikzpicture}[
+            font=\sffamily\small,
+            % Ogni nodo che usa \\ deve avere align=center
+            block/.style={
+                    rectangle, draw, fill=gray!20, rounded corners,
+                    minimum width=3.5cm, minimum height=1.5cm, align=center
+                },
+            % Stile per i testi sulle frecce e nodi semplici
+            labelnode/.style={align=center},
+            arrow/.style={-{Stealth}, line width=1.5pt}
+            ]
+
+            % 1. Nodi principali
+            \node[labelnode] (input) {input\\sensoriale};
+            \node[block, right=1.5cm of input] (sens) {Memoria\\sensoriale};
+            \node[block, right=2.5cm of sens] (short) {Memoria a\\breve\\termine};
+            \node[block, right=2.5cm of short] (long) {Memoria a\\lungo\\termine};
+
+            % 2. Frecce orizzontali
+            \draw[arrow] (input) -- (sens);
+            \draw[arrow] (sens) -- node[above, labelnode] {attenzione} (short);
+
+            % 3. Codifica e Recupero (spostati con yshift per non sovrapporsi)
+            \draw[arrow] ([yshift=0.3cm]short.east) -- node[above, labelnode] {codifica} ([yshift=0.3cm]long.west);
+            \draw[arrow] ([yshift=-0.3cm]long.west) -- node[below, labelnode] {recupero} ([yshift=-0.3cm]short.east);
+
+            % 4. Loop di ripetizione (risolto errore semicolon e LR mode)
+            \draw[arrow] (short.north) .. controls +(up:1.2cm) and +(left:1.2cm) ..
+            node[above, labelnode] {ripetizione\\di mantenimento} (short.120);
+
+            % 5. Frecce di perdita (oblio) verso il basso
+            \draw[arrow] (sens.south) -- ++(0,-1.2)
+            node[below, labelnode, text width=3.5cm] {l'informazione non selezionata è perduta rapidamente};
+
+            \draw[arrow] (short.south) -- ++(0,-1.2)
+            node[below, labelnode, text width=3.5cm] {le informazioni non ripetute sono perdute rapidamente};
+
+            \draw[arrow] (long.south) -- ++(0,-1.2)
+            node[below, labelnode, text width=3.5cm] {alcune informazioni sono perdute col tempo};
+
+        \end{tikzpicture}%
+    }
+\end{center}
+
+\subsubsection{Memoria a breve termine}
+
+Il massimo numero di raggruppamenti di elementi che la mente riesce a trattenere nel breve termine è tra i 5 e i 9, e la permanenza in questa memoria oscilla tra i 15 e i 30 secondi.
+
+La persistenza aumenta con la \bld{ripetizione} e l'attenzione, spostando un'informazione dalla memoria a breve termine in quella a lungo termine.
+
+Un bravo progettista non sovraccarica la STM di un utente, o cerca di minimizzarne in ogni caso l'utilizzo.
+
+Tra un task e un altro tendiamo a scaricare informazioni dalla memoria a breve termine, motivo per cui ogni task dev'essere ben definito e semplice, e i task devono essere definiti in modo sequenziale.
+
+\subsubsection{Memoria a breve termine}
+
+Le interferenze (segnali acustici, visivi, ecc.) possono creare interruzioni nei processi cognitivi, generando rallentamenti e stress. Ad esempio, l'effetto Stroop:
+
+\begin{center}
+    Pronuncia i \bld{colori} di queste scritte:
+
+    \textcolor{red}{Casa}\\
+    \textcolor{blue}{Rosso}\\
+    \textcolor{orange}{Bambino}\\
+    \textcolor{green}{Treno}
+\end{center}
+
+\subsection{Memoria a lungo termine}
+
+Per fini pratici  è illimitata, ha un tempo di accesso lungo ed ha una persistenza di lunghissima durata.
+
+Si introducono i concetti di \bld{rievocazione} (prelevare un'informazione dalla memoria) e \bld{riconoscimento} (confrontare un'informazione data con il contenuto memorizzato). Per un utente è più facile riconoscere che rievocare (ad esempio, è più facile ricordare la funzione del pulsante salva con il floppy disk piuttosto che ricordare il comando specifico per chiudere il computer da terminale).
+
+Nel design quindi si preferisce il riconoscimento alla rievocazione, con associazioni visive forti, ripetute, e distinte.
