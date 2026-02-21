@@ -15,3 +15,160 @@ L'approccio moderno per la raccolta dei requisiti è il seguente: ci si chiede q
 Un caso d'uso è definibile come un'«insieme d'interazioni fra uno o più utenti e il sistema, finalizzate a uno scopo utile per l'utente».
 
 È sconnesso dal concetto di funzionalità di sistema: un caso d'uso può essere implementato mediante più funzioni di sistema.
+
+Un progettista orientato all'utente segue un approccio \itc{top-down}: non parte dalle funzioni, ma dagli obiettivi (i casi d'uso), e definisce le funzioni di conseguenza.
+
+Ogni caso d'uso prevede delle interazioni tra attori e sistema, ha un \bld{nome}, composto da un verbo e un complemento, o una frase che descrive lo scopo. Il caso d'uso viene \bld{invocato} da un attore per uno scopo, e si conclude quando lo raggiunge; l'attore rappresenta un particolare \bld{ruolo} nel sistema.
+
+\begin{center}
+    \includegraphics{images/6_1_attori_caso_uso.png}
+\end{center}
+
+Una freccia o un segmento indica l'attivazione del caso d'uso da parte di un attore.
+
+\begin{center}
+    \includegraphics{images/6_2_invocazione.png}
+\end{center}
+
+
+\subsection{Progettazione universale}
+
+Chiamata in ambito europeo \itc{design for all} (DfA), è la «progettazione di prodotti e ambienti usabili da tutte le persone, al massimo grado possibile, senza la necessità di adattamenti o progettazioni speciali».
+
+Si basa su sette pilastri:
+
+\begin{itemize}
+    \item \textbf{Equità d’uso}: il prodotto della progettazione è utile e vendibile a persone con abilità diverse.
+    \item \textbf{Flessibilità d’uso}: il prodotto della progettazione supporta un ampio spettro di preferenze e abilità individuali.
+    \item \textbf{Uso semplice e intuitivo}: l’uso del prodotto della progettazione è facile da comprendere, indipendentemente dall’esperienza, conoscenza, capacità linguistica o livello di concentrazione corrente dell’utente.
+    \item \textbf{Informazione percepibile}: il prodotto della progettazione comunica efficacemente l’informazione necessaria all’utente, indipendentemente dalle condizioni ambientali o dalle abilità sensoriali dell’utente.
+    \item \textbf{Tolleranza agli errori}: il prodotto della progettazione minimizza i rischi e le conseguenze avverse di azioni accidentali o non intenzionali.
+    \item \textbf{Ridotto sforzo fisico}: il prodotto della progettazione può essere usato in modo efficace, confortevole e con sforzo minimo.
+    \item \textbf{Dimensione e spazio adatti all’uso e all’approccio}: vengono forniti dimensioni e spazi appropriati per l’avvicinamento, la manipolazione e l’uso, indipendentemente dalla corporatura, postura o mobilità dell’utente.
+\end{itemize}
+
+La difficoltà principale risiede proprio nel progettare prodotti interattivi tenendo conto della diversità di tecnologie, degli individui e delle loro capacità d'uso delle tecnologie.
+
+\subsection{Requisito}
+
+È una proprietà richiesta o auspicabile dal prodotto. Il documento dei requisiti ha lo scopo di accogliere una descrizione di tutte le proprietà desiderate, indicando se queste sono obbligatorie o desiderate, ad esempio con parole come «deve», o «dovrebbe».
+
+\begin{calloutinfo}{IEEE}
+    Nei documenti IEEE, \itc{shall}, \itc{should}, \itc{may}, \itc{can} indicano vari livelli di obbligatorietà di un requisito.
+\end{calloutinfo}
+
+Distinguiamo due tipi di requisiti:
+
+\begin{itemize}
+    \item funzionali: descrivono funzioni che il sistema deve realizzare
+    \item non funzionali: descrivono proprietà che un prodotto deve possedere
+\end{itemize}
+
+\subsubsection{Processo di definizione}
+
+La fase di definizione si suddivide in tre attività fondamentali: esplorazione, organizzazione, revisione.
+
+\begin{tikzpicture}[
+    node distance = 1.5cm and 1.8cm,
+    process/.style = {rectangle, draw, fill=gray!15, thick,
+            minimum height=1.2cm, minimum width=3cm,
+            align=center, font=\sffamily\small\bfseries},
+    textnode/.style = {align=center, font=\sffamily\scriptsize},
+    line/.style = {->, >={Stealth[length=2mm]}, thick},
+    dottedline/.style = {->, >={Stealth[length=2mm]}, thick, dashed}
+    ]
+
+    % Nodes
+    \node[process] (esplo) {ESPLORAZIONE};
+    \node[process, right=of esplo] (org) {ORGANIZZAZIONE\\(Stesura requisiti)};
+    \node[process, right=of org] (rev) {REVISIONE E\\APPROVAZIONE};
+
+    % Inputs/Outputs
+    \node[textnode, left=1cm of esplo] (richieste) {Richieste del\\committente};
+    \node[textnode, above=0.8cm of esplo] (interviste) {Interviste con\\gli stakeholder};
+    \node[textnode, above=0.8cm of org] (linee) {Linee guida};
+    \node[textnode, below=0.8cm of rev] (progetto) {Attività di\\progettazione};
+
+    % Additional labels
+    \node[textnode, below=0.5cm of esplo] (best) {Analisi delle\\best practice};
+    \node[textnode, below=1.5cm of esplo.south, xshift=-2cm, anchor=north] (prod) {[Analisi del prodotto\\da sostituire]};
+
+    % Connections
+    \draw[line] (richieste) -- (esplo);
+    \draw[line] (interviste) -- (esplo);
+    \draw[line] (linee) -- (org);
+    \draw[line] (rev) -- (progetto);
+    \draw[dottedline] (prod.north) -- ($(esplo.south)-(1cm,0)$);
+    \draw[line] (esplo.south) -- (best);
+
+    % Main Flow with label (The fix)
+    \draw[line] (esplo) -- node[above, textnode] {Appunti e\\materiale} (org);
+
+    % Requisiti Flow (Double arrow)
+    \draw[line, transform canvas={yshift=2mm}] (org) -- (rev);
+    \draw[line, transform canvas={yshift=-2mm}] (rev) -- (org);
+
+    % Correct coordinate calculation for "Requisiti" label
+    \node[textnode, anchor=north] at ($(org.east)!0.5!(rev.west) - (0,0.3)$) {Requisiti};
+
+\end{tikzpicture}
+
+\subsubsection{Fase di esplorazione}
+
+Nella fase di esplorazione si può incorrere in alcuni problemi:
+
+\begin{itemize}
+    \item ambito: si rischia di ampliare troppo il campo di esplorazione
+    \item comprensione: spesso nemmeno gli utenti sanno a pieno i loro bisogni
+    \item conflitto: più stakeholder possono avere idee diverse sul sistema da progettare
+    \item volatilità: i requisiti potrebbero evolvere nel tempo
+\end{itemize}
+
+In fase di esplorazione vengono usate delle tecniche per agevolare la raccolta dei requisiti.
+
+\textbf{Questionari}
+\begin{itemize}
+    \item \textbf{Dati Strutturati}: Permettono di raccogliere informazioni elaborabili con \textbf{metodi statistici}.
+    \item \textbf{Distribuzione}: Avviene principalmente tramite piattaforme \textbf{online} o pagine web dedicate.
+    \item \textbf{Scala Likert}: Tecnica basata su opinioni (da ``in completo disaccordo'' a ``d'accordo'') con valori da \textbf{1 a 5} per calcolare la media delle risposte.
+\end{itemize}
+
+\textbf{Interviste Individuali}
+\begin{itemize}
+    \item \textbf{Profondità}: È la tecnica più usata con committenti e stakeholder per analizzare i problemi \textbf{in profondità}.
+    \item \textbf{Obiettivo}: Raccogliere esigenze, suggerimenti e lamentele tramite colloqui diretti o telefonici.
+    \item \textbf{Anonimato}: Spesso garantito per ottenere la \textbf{massima sincerità} dall'intervistato.
+\end{itemize}
+
+\textbf{Focus Group}
+\begin{itemize}
+    \item \textbf{Confronto}: Interviste di gruppo per far emergere \textbf{diversi punti di vista} o visioni condivise.
+    \item \textbf{Ruoli}: Gestiti da un \textbf{animatore} (guida) e un \textbf{osservatore} (esamina le dinamiche).
+    \item \textbf{Gestione}: Cruciale evitare conflitti e garantire spazio di espressione a tutti i partecipanti.
+\end{itemize}
+
+\textbf{Osservazioni sul Campo}
+\begin{itemize}
+    \item \textbf{Realtà vs Percezione}: Utile perché gli utenti spesso hanno un'immagine distorta o inconscia delle proprie abitudini quotidiane.
+    \item \textbf{Efficacia}: Molto istruttiva per scoprire comportamenti reali ``sorprendenti''.
+    \item \textbf{Costi}: Tecnica potenzialmente \textbf{molto costosa} e complessa per la varietà di utenti.
+\end{itemize}
+
+\textbf{Analisi della Concorrenza e Best Practice}
+\begin{itemize}
+    \item \textbf{Value Proposition}: Identifica punti di forza e debolezza dei competitor per definire il \textbf{valore distintivo} del proprio prodotto.
+    \item \textbf{Best Practice}: Individua le soluzioni migliori del settore da cui trarre spunti per i requisiti.
+    \item \textbf{Tempistica}: Ideale all'inizio del progetto per testare le soluzioni altrui durante le interviste.
+\end{itemize}
+
+\textbf{Suggerimenti Spontanei}
+\begin{itemize}
+    \item \textbf{Fonti Web}: Raccolta sistematica da \textbf{forum di discussione} e siti di feedback.
+    \item \textbf{Votazione}: Gli utenti possono segnalare e ``votare'' i miglioramenti desiderati, guidando l'evoluzione del prodotto.
+\end{itemize}
+
+\subsection{Scenari d'uso}
+
+Uno scenario d'uso è una narrazione di una possibile storia dell'uso del sistema da parte di un utente tipico, descritto in modo realistico.
+
+Gli scenari «mettono in scena» una serie di casi d’uso, collocandoli nel contesto, che si rischia di trascurare in fase di progettazione. Al loro interno, non devono contenere dettagli irrilevanti, né devono essere però incompleti.
