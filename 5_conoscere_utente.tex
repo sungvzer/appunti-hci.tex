@@ -164,9 +164,9 @@ Le interferenze (segnali acustici, visivi, ecc.) possono creare interruzioni nei
     Pronuncia i \bld{colori} di queste scritte:
 
     \textcolor{red}{Casa}\\
-    \textcolor{blue}{Rosso}\\
     \textcolor{orange}{Bambino}\\
     \textcolor{green}{Treno}
+    \textcolor{blue}{Rosso}\\
 \end{center}
 
 \subsection{Memoria a lungo termine}
@@ -176,3 +176,51 @@ Per fini pratici  è illimitata, ha un tempo di accesso lungo ed ha una persiste
 Si introducono i concetti di \bld{rievocazione} (prelevare un'informazione dalla memoria) e \bld{riconoscimento} (confrontare un'informazione data con il contenuto memorizzato). Per un utente è più facile riconoscere che rievocare (ad esempio, è più facile ricordare la funzione del pulsante salva con il floppy disk piuttosto che ricordare il comando specifico per chiudere il computer da terminale).
 
 Nel design quindi si preferisce il riconoscimento alla rievocazione, con associazioni visive forti, ripetute, e distinte.
+
+\subsection{Visione}
+
+Quando guardiamo qualcosa, lo sguardo si fissa su un determinato punto (fissazione), per poi spostartsi su un altro punto (saccade); durante il movimento l'occhio è cieco. In media l'occhio esegue \itc{tre-quattro fissazioni al secondo}.
+
+Nella visione periferica, l'occhio molto più sensibile ai \bld{movimenti} che ai colori e ai dettagli, che invece sono più distinti nella visione foveale.
+
+\subsubsection{Visione del colore}
+
+Il colore viene recepito tramite i coni della retina, sensibili ai colori rosso, verde, e blu. Il \itc{daltonismo} è la mancanza o il difetto di alcuni coni; ciò può portare a confondere colori o non vederli proprio.
+
+Bisogna tenere in mente che non tutti distinguono i colori allo stesso modo, e nel design si deve evitare di veicolare informazioni esclusivamente tramite il colore.
+
+\subsubsection{Scanpath}
+
+È un tracciato bidimensionale che compiono gli occhi durante l'esplorazione di una scena; studiando gli scanpath ad esempio su una pagina web si può capire i punti di interesse visivo maggiore per un utente, e il percorso che fanno i suoi occhi durante la navigazione.
+
+\subsection{Sistema motorio}
+
+\subsubsection{Feedback e apprendimento motorio}
+
+Il feedback può essere:
+
+\begin{itemize}
+    \item \bld{qualitativo}: il movimento si riflette nell'interfaccia e l'obiettivo viene raggiunto in modo approssimato
+    \item \bld{quantitativo}: il movimento si riflette nell'interfaccia e si è in grado di valutare con precisione il raggiungimento dell'obiettivo
+\end{itemize}
+
+L'apprendimento motorio riduce il tempo di esecuzione con l'aumentare delle ripetizioni di un compito; il miglioramento non è lineare però: all'inizio c'è un miglioramento rapido, che poi si appiattisce all'aumentare delle ripetizioni.
+
+Una delle azioni più frequenti che compie un interagente è quella di spostare un cursore o il dito da un punto a un bersaglio. È possibile calcolare il tempo necessario medio per raggiungere un bersaglio con la \bld{legge di Fitts}:
+
+$$ T = a+b\cdot\log_2{\left(\frac{D}{S}+1\right)} $$
+
+Dove:
+
+\begin{itemize}
+    \item $T$: tempo medio necessario per effettuare il movimento
+    \item $D$: distanza tra punto di partenza e centro del bersaglio
+    \item $S$: dimensione del bersaglio misurata lungo l'asse del movimento
+    \item $a$ e $b$: sono due costanti ricavate in modo sperimentale
+\end{itemize}
+
+Questa legge ci dice che per ridurre il tempo necessario per spostare un cursore si può \bld{ingrandire} l'obiettivo, o \bld{avvicinarlo} al punto di partenza. Una conseguenza importante di questa legge è che:
+
+\begin{calloutinfo}{I bersagli disposti lungo i bordi sono particolarmente veloci da raggiungere}
+    Poiché il puntatore non può oltrepassare il bordo, nella formula di Fitts è come se $S$ avesse dimensione infinita, e quindi $T=a$, un tempo costante.
+\end{calloutinfo}
