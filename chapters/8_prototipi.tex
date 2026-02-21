@@ -1,0 +1,113 @@
+\section{Prototipi}
+
+Per rappresentare dei concetti durante la progettazione si usano diversi strumenti, formali e informali. All'interno dei diagrammi informali troviamo: schizzi, storyboard, ecc.
+
+\subsection{Statechart}
+
+Per rappresentare in modo più adeguato l'interazione con l'utente si usano i diagrammi per macchine a stati, costituiti da nodi e archi: ogni nodo è uno stato, ogni arco è una transizione da uno stato all'altro.
+
+\begin{wrapfigure}{r}{0.25\textwidth}
+    \centering
+    \begin{tikzpicture}[
+        state/.style={
+                rectangle,
+                draw=black,
+                thick,
+                minimum width=1.8cm,
+                minimum height=1cm,
+                rounded corners=8pt,
+                font=\bfseries
+            },
+        arrow/.style={-{Stealth}, thick}
+        ]
+        % Nodi
+        \node[state] (S1) {$S_1$};
+        \node[state] (S2) [below=1.2cm of S1] {$S_2$};
+
+        % Transizione
+        \draw[arrow] (S1) -- (S2)
+        node[midway, right] {\small E [C] / A};
+    \end{tikzpicture}
+\end{wrapfigure}
+
+Quando il sistema si trova nello stato $S_1$, se si verifica l'evento $E$, con condizione $C$, il sistema effettua l'azione $A$ e si sposta nello stato $S_2$.
+
+Di solito gli eventi sono associati ad azioni dell'utente.
+
+Gli statechart hanno il vantaggio di esplicitare tutti i percorsi che l'utente può seguire durante l'interazione col sistema, evidenziando possibili punti deboli e aspetti critici del caso d'uso ancor prima di realizzare un prototipo.
+
+\subsection{Prototipo}
+
+Secondo lo standard ISO 13407, un prototipo è una «rappresentazione di un prodotto o sistema, o di una sua parte che, anche se limitata, può essere usata a scopo di valutazione». Un prototipo è quindi un \bld{modello approssimativo} del sistema, che serve solo a scopo valutativo.
+
+Usare un prototipo permette di:
+
+\begin{itemize}
+    \item rendere le decisioni di progetto esplicite
+    \item esplorare più design e varianti del progetto
+    \item incorporare il feedback degli utenti
+    \item migliorare la qualità delle specifiche
+\end{itemize}
+
+Un prototipo se usato bene è un valido aiuto in quanto può essere sviluppato velocemente, a basso costo, e diventa uno strumento di comunicazione per il gruppo di lavoro; bisogna però identificare le parti da tenere fisse, e quelle da modificare.
+
+I prototipi usano strumenti poco efficienti, dovuti anche a codice di bassa qualità e algoritmi semplificati.
+
+\subsection{Classificazione dei prototipi}
+
+\subsubsection{Scopo del prototipo}
+
+Ogni prototipo ha un suo scopo:
+
+\noindent % Impedisce l'indentazione del blocco
+\begin{minipage}[t]{0.65\textwidth} % Blocco testo (65%)
+    \vspace{0pt} % Allinea in alto con la figura
+    \begin{itemize}
+        \item \textbf{ruolo}: si sperimenta il ruolo del prodotto nella vita degli utenti
+        \item \textbf{user experience}: si sperimenta l'esperienza d'uso
+        \item \textbf{implementazione}: si sperimentano tecniche e componenti per la realizzazione finale
+    \end{itemize}
+\end{minipage}
+\hfill % Spazio elastico tra i due blocchi
+\begin{minipage}[t]{0.3\textwidth} % Blocco figura (30%)
+    \vspace{0pt} % Allinea in alto con il testo
+    \centering
+    \begin{tikzpicture}[scale=0.6, every node/.style={scale=0.7}]
+        % Definizione dei punti del triangolo
+        \coordinate (Top) at (90:2.5);
+        \coordinate (Left) at (210:2.5);
+        \coordinate (Right) at (330:2.5);
+
+        % Disegno del triangolo
+        \draw[thick] (Top) -- (Left) -- (Right) -- cycle;
+
+        % Etichette ai vertici
+        \node[above=0.1cm of Top] {\textbf{Ruolo}};
+        \node[below left=0.1cm and -0.7cm of Left] {Implementazione};
+        \node[below right=0.1cm and -0.7cm of Right] {Interfaccia};
+
+        % Il puntino verde sottile
+        \filldraw[fill=green!60!black, draw=black, thin] (-0.8,-0.5) circle (3pt);
+    \end{tikzpicture}
+\end{minipage}
+\vspace{1em} % Spazio dopo il blocco
+
+\subsubsection{Prototipi statici, dinamici, interattivi}
+
+La rappresentazione \bld{statica} del prodotto è una serie d'immagini, un modello 3D, o una rappresentazione statica del funzionamento dinamico del prodotto. I prototipi \bld{dinamici} invece sono una sequenza d'immagini, video, ecc. che vengono mostrati all'utente in sequenza, simulando scenari d'uso tipici. I prototipi più utili sono \bld{interattivi}, poiché sono utilizzabili dagli utenti durante i test.
+
+\subsubsection{Fedeltà dei prototipi}
+
+Un prototipo a \bld{bassa fedeltà} assomiglia in modo approssimativo al prodotto finale: parliamo di \itc{mockup}. Un prototipo ad \bld{alta fedeltà} invece è quanto più possibile vicino agli aspetti del prodotto finale.
+
+\subsubsection{Ciclo di vita del prototipo}
+
+Il primo tipo di ciclo di vita è il prototipo \itc{throw away}: prototipi usati poche volte e ignorati.
+
+IL prototipo evolutivo invece parte da un prototipo iniziale ed evoluto fino alla versione finale: tende a fissare una soluzione sin dall'inizio del progetto.
+
+I prototipi incrementali sono sviluppati e installati a fasi, mentre quelli interattivi sono modificati al volo in base ai commenti dell'utente.
+
+\subsubsection{Prototipi orizzontali e verticali}
+
+I prototipi vengono classificati per la loro completezza funzionale, un prototipo \bld{orizzontale} è un prototipo che non permette di svolgere alcun task fino in fondo, ma permette di valutare l'intera interfaccia, mentre un prototipo \bld{verticale} permette di testare solo una parte di sistema fino in fondo, in situazioni realistiche, con utenti reali.

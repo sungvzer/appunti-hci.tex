@@ -17,3 +17,6 @@
 {"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qalzando la maniglia verso l'alto e verso sinistra, fino in fondo Esecuzione: apro il rubinetto secondo la specifica Percezione dello stato del mondo: vedo l'acqua uscire dalla doccia, sento l'acqua calda, il rubinetto non si muove più di così Interpretazione dello stato del mondo: il rubinetto è aperto, il flusso dell'acqua calda è conseguenza delle mie azioni Valutazione del risultato: decido di aver raggiunto il mio scopo\\E$"}
 {"rule":"MORFOLOGIK_RULE_IT_IT","sentence":"^\\QAffordance & Feedback.\\E$"}
 {"rule":"MORFOLOGIK_RULE_IT_IT","sentence":"^\\QL'affordance è la proprietà di un oggetto di influenzare visivamente il modo in cui viene usato: riduce il golfo dell'esecuzione.\\E$"}
+{"rule":"ER_01_001","sentence":"^\\QPer rappresentare in modo più adeguato l'interazione con l'utente si usano i diagrammi per macchine a stati, costituiti\\E$"}
+{"rule":"MORFOLOGIK_RULE_IT_IT","sentence":"^\\QStatechart.\\E$"}
+{"rule":"ER_01_001","sentence":"^\\QPer rappresentare in modo più adeguato l'interazione con l'utente si usano i diagrammi per macchine a stati, costituiti da nod\\E$"}
