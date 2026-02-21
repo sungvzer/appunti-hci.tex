@@ -1,0 +1,19 @@
+{"rule":"MORFOLOGIK_RULE_IT_IT","sentence":"^\\QNella progettazione tradizionale si pensava al sistema come oggetto principale da progettare, oggi invece si attua una progettazione centrata sull'essere umano: human-centred design, o HCD.\\E$"}
+{"rule":"MORFOLOGIK_RULE_IT_IT","sentence":"^\\QUser-centered design.\\E$"}
+{"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qpossono creare interruzioni nei processi cognitivi, generando rallentamenti e stress.\\E$"}
+{"rule":"MORFOLOGIK_RULE_IT_IT","sentence":"^\\QAd esempio, l'effetto Stroop:\\E$"}
+{"rule":"MORFOLOGIK_RULE_IT_IT","sentence":"^\\QQuando guardiamo qualcosa, lo sguardo si fissa su un determinato punto (fissazione), per poi spostarsi su un altro punto (saccade); durante il movimento l'occhio è cieco.\\E$"}
+{"rule":"MORFOLOGIK_RULE_IT_IT","sentence":"^\\QIn media l'occhio esegue tre-quattro fissazioni al secondo.\\E$"}
+{"rule":"MORFOLOGIK_RULE_IT_IT","sentence":"^\\QQuando si prende in considerazione quindi l'interazione uomo-macchina, la progettazione diventa incentrata sull'essere umano.\\E$"}
+{"rule":"UNPAIRED_BRACKETS","sentence":"^\\QUn'interfaccia d'uso è l'insieme di «tutti i componenti di un sistema interattivo HW o SW che forniscono all'utente informazioni e comandi che gli permettono di effettuare specifici task».\\E$"}
+{"rule":"MORFOLOGIK_RULE_IT_IT","sentence":"^\\QMetodo d'interazione Dispositivi associati Vista Schermo, stampante Udito Altoparlanti, cuffie, sintetizzatori vocali Mani Tastiera, mouse, joystick, touch screen, scrittura Sguardo Eye-tracking, head-tracking Voce Riconoscimento vocale, microfono\\E$"}
+{"rule":"MORFOLOGIK_RULE_IT_IT","sentence":"^\\QLa complessità strutturale si può misurare ad esempio con le linee di codice sorgente di un programma, quella funzionale invece attraverso i function point, ovvero unità di misura delle funzionalità visibili all'utente.\\E$"}
+{"rule":"MORFOLOGIK_RULE_IT_IT","sentence":"^\\QNella progettazione delle interfacce è quindi necessario comprendere gli utenti, le loro task abituali (task-centered system design), e valutare le interfacce con gli utenti.\\E$"}
+{"rule":"MORFOLOGIK_RULE_IT_IT","sentence":"^\\QL'e-inclusione punta ad assicurare che persone svantaggiate non siano escluse per mancanza di alfabetizzazione digitale o accesso a internet.\\E$"}
+{"rule":"MORFOLOGIK_RULE_IT_IT","sentence":"^\\QPersonal computer.\\E$"}
+{"rule":"MORFOLOGIK_RULE_IT_IT","sentence":"^\\QISO 13407: «Human-centered design process for interactive systems».\\E$"}
+{"rule":"MORFOLOGIK_RULE_IT_IT","sentence":"^\\QÈ il modello più semplice dell'interazione sistema-utilizzatore: l'utente fornisce un input al sistema, e il sistema risponde (feedback).\\E$"}
+{"rule":"MORFOLOGIK_RULE_IT_IT","sentence":"^\\QModello di Donald Norman.\\E$"}
+{"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qalzando la maniglia verso l'alto e verso sinistra, fino in fondo Esecuzione: apro il rubinetto secondo la specifica Percezione dello stato del mondo: vedo l'acqua uscire dalla doccia, sento l'acqua calda, il rubinetto non si muove più di così Interpretazione dello stato del mondo: il rubinetto è aperto, il flusso dell'acqua calda è conseguenza delle mie azioni Valutazione del risultato: decido di aver raggiunto il mio scopo\\E$"}
+{"rule":"MORFOLOGIK_RULE_IT_IT","sentence":"^\\QAffordance & Feedback.\\E$"}
+{"rule":"MORFOLOGIK_RULE_IT_IT","sentence":"^\\QL'affordance è la proprietà di un oggetto di influenzare visivamente il modo in cui viene usato: riduce il golfo dell'esecuzione.\\E$"}
