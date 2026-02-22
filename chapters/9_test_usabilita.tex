@@ -1,0 +1,57 @@
+\section{Test di usabilità}
+
+\begin{wrapfigure}{r}{0.5\textwidth}
+    \centering
+    \begin{tikzpicture}[
+        % Definizione degli stili per mantenere il codice pulito
+        state/.style={ellipse, draw=black, font=\sffamily, fill=white},
+        arrow/.style={red, -{Triangle[length=5mm, width=6mm]}, line width=2mm},
+        note/.style={fill=yellow, font=\sffamily\footnotesize, align=center, inner sep=3pt},
+        scale=0.6
+        ]
+
+        % 1. Posizionamento dei nodi principali (le ellissi)
+        \node[state] (req) at (0, 2.5) {Requisiti};
+        \node[state] (prog) at (-3.5, 0) {Progettazione};
+        \node[state] (prot) at (0, -2.5) {Prototipazione};
+        \node[state] (test) at (3.5, 0) {Test};
+
+        % 2. Frecce interne del ciclo (leggermente curvate con 'bend right')
+        \draw[arrow] (req) to[bend right=25] (prog);
+        \draw[arrow] (prog) to[bend right=25] (prot);
+        \draw[arrow] (prot) to[bend right=25] (test);
+        \draw[arrow] (test) to[bend right=25] (req);
+
+        % 3. Freccia in entrata (Inizio)
+        \draw[arrow] (-5.5, 2.5) -- node[above, font=\sffamily, text=black] {Inizio} (req.west);
+
+        % 4. Freccia in uscita (Rilascio)
+        \draw[arrow] (test.east) -- node[above, font=\sffamily, text=black] {Rilascio} (6.5, 0);
+
+    \end{tikzpicture}
+\end{wrapfigure}
+
+Nel modello di progettazione iterativo a ogni ciclo si effettuano dei test di valutazione dell'ultimo prototipo. La valutazione è un passo essenziale nella progettazione human-centered.
+
+Si denotano due attività molto diverse all'interno della fase di valutazione: la \bld{verification}, dove si controlla che il prodotto sia congruente con quanto espresso nella specifica, e la \bld{validation}, che verifica che il prodotto soddisfi le esigenze per il quale è stato concepito.
+
+Ci sono due categorie: le valutazione attraverso l'analisi di esperti di usabilità (\bld{ispezioni}) e le valutazioni con la partecipazione degli utenti.
+
+\subsection{Valutazioni basate su euristiche}
+
+Un'euristica è un qualsiasi procedimento non rigoroso che permette di prevedere o rendere plausibile un risultato.
+
+Il sistema viene esaminato verificando la conformità nei confronti di determinate \bld{euristiche}, che derivano da linee guida generalmente accettate. Le euristiche che andremo ad analizzare sono le \bld{euristiche di Nielsen}:
+
+\begin{enumerate}
+    \item \bld{Visibilità dello stato del sistema}: il sistema deve sempre informare gli utenti su cosa sta succedendo.
+    \item \bld{Corrispondenza fra mondo reale e sistema}: il sistema deve parlare il linguaggio dell'utente, e non termini orientati al sistema.
+    \item \bld{Libertà e controllo da parte degli utenti}: gli utenti hanno bisogno d'indicazioni chiare per uscire da stati indesiderati.
+    \item \bld{Consistenza e standard}: gli utenti non devono chiedersi se parole o azioni diverse hanno lo stesso significato.
+    \item \bld{Prevenzione degli errori}: eliminare situazioni che possono provocare errori dell'utente, e chiedergli sempre conferma.
+    \item \bld{Riconoscere piuttosto che ricordare}: fare ricorso al riconoscimento visto nel \autoref{chap:memoria_lungo_termine}.
+    \item \bld{Flessibilità ed efficienza d'uso}: permettere all'utente esperto di velocizzare le sue attività tramite degli acceleratori (ad esempio la linea di comando su AutoCAD).
+    \item \bld{Design minimalista ed estetico}: le informazioni su schermo devono essere quanto più rilevanti e frequenti possibile, evitare informazioni aggiuntive nei dialoghi.
+    \item \bld{Aiutare gli utenti con gli errori}: i messaggi di errore devono essere espressi in linguaggio semplice, e suggerire una soluzione all'utente.
+    \item \bld{Guida e documentazione}: se necessario, fornire aiuto e documentazione facilmente accessibile.
+\end{enumerate}

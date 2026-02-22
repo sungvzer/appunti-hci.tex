@@ -332,3 +332,5 @@ TSWLatexianTemp*
 
 # Folder with lesson slides
 pdf
+
+luatex.*

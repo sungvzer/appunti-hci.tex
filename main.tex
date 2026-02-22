@@ -6,7 +6,6 @@
 \usepackage[left=1.5cm, right=1.5cm, top=2cm, bottom=2cm]{geometry}
 \usepackage{titlesec}
 \usepackage{enumitem}
-\usepackage[default]{lato}
 \usepackage{emoji}
 \usepackage{graphicx}
 \usepackage{fancyhdr}
@@ -99,10 +98,11 @@
 
 \DTMsetdatestyle{dateIT}
 
-\let\temp\rmdefault
-\usepackage{mathpazo}
-\let\rmdefault\temp
-
+\usepackage{unicode-math}
+\setmainfont{Lato} 
+\setmathfont{latinmodern-math.otf}
+\setmathfontface\mathrm{latinmodern-math.otf}
+\setoperatorfont\mathrm
 
 \pagestyle{fancy}
 \lhead{
@@ -136,6 +136,7 @@
     urlcolor=blue,
     pdftitle={Salvatore Gargano --- Appunti di Interazione Uomo Macchina},
 }
+\renewcommand{\subsectionautorefname}{capitolo}
 
 
 \begin{document}
@@ -155,5 +156,6 @@
 \input{chapters/6_progettare_utente}
 \input{chapters/7_ingegneria_creativita.tex}
 \input{chapters/8_prototipi.tex}
+\input{chapters/9_test_usabilita.tex}
 
 \end{document}
