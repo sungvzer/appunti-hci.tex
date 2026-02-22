@@ -1,6 +1,5 @@
 \documentclass[a4paper,12pt]{article}
 \usepackage{parskip}
-\usepackage[utf8]{inputenc}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage[left=1.5cm, right=1.5cm, top=2cm, bottom=2cm]{geometry}
@@ -10,15 +9,20 @@
 \usepackage{graphicx}
 \usepackage{subcaption}
 \usepackage{fancyhdr}
-\usepackage[pdfborderstyle={/S/U/W 1}]{hyperref}
 \usepackage{datetime2}
 \usepackage{tikz}
 \usepackage{wrapfig}
 \usepackage[italian]{babel}
 \usepackage{tabularx}
-\usetikzlibrary{shapes.geometric, arrows.meta, positioning, calc}
 \usepackage[most]{tcolorbox}
+\usepackage[pdfborderstyle={/S/U/W 1}]{hyperref}
+
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning, calc, external}
+\tikzexternalize[prefix=tikz-build/]
+\tikzset{external/system call={lualatex \tikzexternalcheckshellescape -halt-on-error -interaction=batchmode -jobname "\image" "\texsource"}}
 \tcbuselibrary{skins,breakable}
+\tcbsetforeverylayer{shield externalize}% <--- interim solution before bug fix
+
 
 \newtcolorbox{calloutinfo}[2][]{
   breakable,
@@ -149,14 +153,15 @@
 \tableofcontents
 \pagebreak
 
-\input{chapters/1_introduzione}
-\input{chapters/2_sistemi_interattivi}
-\input{chapters/3_usabilita.tex}
-\input{chapters/4_progettazione_per_prototipi_successivi}
-\input{chapters/5_conoscere_utente}
-\input{chapters/6_progettare_utente}
-\input{chapters/7_ingegneria_creativita.tex}
-\input{chapters/8_prototipi.tex}
-\input{chapters/9_test_usabilita.tex}
+\include{chapters/1_introduzione}
+\include{chapters/2_sistemi_interattivi}
+\include{chapters/3_usabilita.tex}
+\include{chapters/4_progettazione_per_prototipi_successivi}
+\include{chapters/5_conoscere_utente}
+\include{chapters/6_progettare_utente}
+\include{chapters/7_ingegneria_creativita.tex}
+\include{chapters/8_prototipi.tex}
+\include{chapters/9_test_usabilita.tex}
+\include{chapters/10_principi_linee_guida}
 
 \end{document}
