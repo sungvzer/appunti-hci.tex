@@ -63,3 +63,125 @@ Afferma che le funzionalità e le interazioni del sistema devono essere modellat
 \subsubsection{Auto-descrizione}
 
 Il sistema deve comunicare all'utente in ogni momento cosa può fare, come, e cosa sta accadendo.
+
+\bld{Guida per l'utente}: ogni passo del dialogo deve fornire all'utente tutte le informazioni utili a proseguire: informazioni operative, sullo stato del sistema, e di feedback.
+
+\bld{Interazione evidente}: raccomanda che i dialoghi siano progettati in modo che l'interazione risulti evidente.
+
+\bld{Descrizione dell'input atteso}: l'utente deve ricevere informazioni adeguate sull'input (cosa inserire, che formato usare).
+
+\bld{Stato visibile}: l'utente deve essere sempre informato sullo stato del sistema.
+
+\bld{Formati descritti}: il sistema fornisce all'utente ogni informazione utile su formati e unità di misura dei dati.
+
+\bld{Manualistica minima}: durante l'interazione, minimizzare la necessità di ricorrere ai manuali.
+
+\subsubsection{Conformità alle aspettative}
+
+Il dialogo dev'essere conforme alle aspettative dell'utente in relazione al contesto d'uso.
+
+\bld{Linguaggio familiare}: usare un linguaggio che l'utente conosce bene, che sia testuale o visivo.
+
+\bld{Aderenza alle convenzioni}: se esistono convenzioni di design nello specifico contesto d'uso, seguirle.
+
+\bld{Organizzazione abituale}: la struttura del dialogo e dei dati devono permettere all'utente di effettuare le operazioni secondo le modalità a cui è abituato (ad esempio, la navigazione in alto o a sinistra della pagina).
+
+\bld{Dialogo consistente}: i dialoghi dello stesso sistema devono avere aspetto e comportamento coerenti tra loro.
+
+\bld{Feedback conforme alle aspettative}: il feedback dev'essere comprensibile, specifico, e tempestivo.
+
+\bld{Tempi di risposta conformi alle aspettative}: il sistema deve rispondere nei tempi che l'utente si aspetta, o informarlo dell'attesa prolungata.
+
+\bld{Messaggi adeguati al contesto}: la lunghezza e il tipo dei messaggi devono essere adeguati al contesto (mi serve una risposta lunga o corta?).
+
+\bld{Messaggi in posizione appropriata}: le informazioni devono apparire dove l'utente ha il focus in quel momento, non in un'altra zona visiva.
+
+\bld{Input in posizione attesa}: seguire le aspettative dell'utente per la posizione degli elementi di input.
+
+\bld{Stile coerente dei messaggi}: mostrare i messaggi in una forma coerente con il contesto e le convenzioni correnti.
+
+\subsubsection{Adeguatezza all'apprendimento}
+
+Il dialogo utente-sistema dev'essere organizzato in modo tale da aiutare l'utente nell'apprendimento del sistema.
+
+\bld{Bassa soglia di apprendimento}: organizzare l'interfaccia su più livelli di complessità crescente.
+
+\bld{Aiuto alla familiarizzazione}: aiutare l'utente a prendere familiarità col dialogo, suggerendo azioni o fornendo aiuto.
+
+\bld{Aiuto online}: permettere all'utente di chiedere aiuto in modo autonomo.
+
+\bld{Feedback intermedi}: il dialogo deve fornire feedback sui risultati intermedi e finali di un compito.
+
+\bld{Modello concettuale evidente}: il sistema deve aiutare l'utente a costruirsi un proprio modello concettuale del sistema. Frequente è l'uso di gerarchie nei menù.
+
+\bld{Sperimentazione sicura}: permettere all'utente di scoprire il sistema sperimentandolo senza causare azioni negative o distruttive.
+
+\bld{Riapprendimento facilitato}: il sistema deve permettere all'utente di riapprendere le funzioni raramente usate in modo semplice, fornendo aiuti sull'esecuzione delle stesse.
+
+\subsubsection{Controllabilità}
+
+L'utente guida il sistema, non il contrario.
+
+\bld{Tempi d'interazione controllati dall'utente}: non introdurre timeout che non siano effettivamente necessari.
+
+\bld{Proseguimento del dialogo controllato dall'utente}: l'utente deve poter decidere come proseguire senza che il sistema gli imponga dei vincoli.
+
+\bld{Punto di ripartenza controllato dall’utente}: permettere all'utente di riprendere il dialogo nel punto che è più compatibile tra le necessità di sistema e quelle dell'utente.
+
+\bld{Reversibilità delle operazioni}: introdurre meccanismi di annullamento e ripetizione delle azioni.
+
+\bld{Modalità di visualizzazione dei dati controllata dall’utente}: l'utente deve poter scegliere come visualizzare i suoi dati.
+
+\bld{Dispositivo d’interazione scelto dall’utente}: fornire all'utente la possibilità di scegliere con quale dispositivo dialogare.
+
+\bld{Personalizzazione dei valori di default}: ad esempio in Word, scegliere un font di default per i nuovi documenti.
+
+\bld{Disponibilità dei dati originali}: se necessario, l'utente deve poter ritornare ai dati originali dopo la loro modifica.
+
+\subsubsection{Tolleranza verso l’errore}
+
+Tutti gli utenti commettono errori, bisogna disegnare dei sistemi che riducano al minimo le probabilità che questi avvengano.
+
+\bld{Assistenza all'utente}: aiutare l'utente a evitare di commettere errori, e a scoprire quelli già commessi.
+
+\bld{Verifica e convalida dei dati}: il sistema deve verificare i dati in ingresso prima di elaborarli.
+
+\bld{Prevenzione di azioni non lecite}: fornire agli utenti sempre e solo azioni valide per evitare \itc{crash} o \itc{undefined behavior}.
+
+\bld{Richieste di conferma}: nel caso di azioni distruttive, chiedere sempre conferma all'utente.
+
+\bld{Spiegazione dell’errore}: fornire una spiegazione adeguata degli errori all'utente, suggerendo una correzione.
+
+\bld{Spiegazioni aggiuntive}: il sistema deve aggiungere informazioni sull'errore se richiesto dall'utente.
+
+\bld{Assistenza per il recupero}: quando l’utente commette un errore, il sistema dovrebbe fornirgli un supporto attivo per permettergli di ristabilire la situazione corretta.
+
+\bld{Minimo sforzo di correzione}: i passi per la correzione dell'errore devono essere quanto più semplici possibile.
+
+\bld{Correzione differibile}: dare all'utente la possibilità di rimandare la correzione dell'errore.
+
+\bld{Correzione automatica modificabile}: se il sistema corregge in automatico un errore dell'utente, deve dargli la possibilità di notarlo e modificare la correzione.
+
+\subsubsection{Adeguatezza all’individualizzazione}
+
+Nessun sistema è universale, un sistema ben progettato dà all'utente la possibilità di personalizzarlo.
+
+\bld{Scelta di rappresentazioni alternative}: permettere all'utente di scegliere tra varie forme di rappresentazione dei dati.
+
+\bld{Scelta dei formati dei dati input e output}.
+
+\bld{Vocabolario personalizzabile}: permettere di arricchire il vocabolario del sistema se necessario.
+
+\bld{Scelta del livello delle spiegazioni}: così da adattare i messaggi all'esperienza dell'utente.
+
+\bld{Personalizzazione dei tempi di risposta} dei dispositivi I/O.
+
+\bld{Scelta del metodo d’interazione}: permettere ove possibile la personalizzazione delle tecniche di dialogo e d'interazione (ad esempio, fornire scorciatoie da tastiera per alcuni pulsanti a schermo usati frequentemente).
+
+\bld{Personalizzazione del dialogo}: l'utente deve poter scegliere cosa visualizzare e con cosa interagire.
+
+\bld{Ripristinabilità dei valori precedenti}: se l'utente ha effettuato modifiche e vuole tornare a uno stato di default, bisogna ricordare quali modifiche ha fatto e dove.
+
+\subsubsection{Principi del dialogo ed euristiche di Nielsen}
+
+I principi del dialogo corrispondono quasi 1:1 alle euristiche di Nielsen (vedi \autoref{chap:euristiche_nielsen}).

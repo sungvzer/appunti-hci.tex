@@ -20,3 +20,4 @@
 {"rule":"ER_01_001","sentence":"^\\QPer rappresentare in modo più adeguato l'interazione con l'utente si usano i diagrammi per macchine a stati, costituiti\\E$"}
 {"rule":"MORFOLOGIK_RULE_IT_IT","sentence":"^\\QStatechart.\\E$"}
 {"rule":"ER_01_001","sentence":"^\\QPer rappresentare in modo più adeguato l'interazione con l'utente si usano i diagrammi per macchine a stati, costituiti da nod\\E$"}
+{"rule":"GR_04_002","sentence":"^\\QInput in posizione attesa: seguire le aspettative dell'utente per la posizione degli elementi di input.\\E$"}
